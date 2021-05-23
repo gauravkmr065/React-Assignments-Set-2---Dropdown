@@ -138,13 +138,103 @@ const states = [{
 }];
 
 
-function App() 
-{
-	// Do not alter/remove main div
+function App() {
+	const [state, setState] = useState({
+                                name:"",
+								description:"",
+								city:[]
+                             });
+	const[city,setCity]= useState({
+                             name:"",
+							 description:"",
+							 landmarks:[]
+	                      })
+	const[landmark,setLandmark]= useState({
+                             name:"",
+							 description:"",
+	                      })
+			
+     const stateHandler = (e)=>{
+		states.map(state=>{
+			if(state.name==e.target.value){
+				setState(state);
+			}
+		})
+	 }
+
+	 const cityHanlder = (e)=>{
+		state.city.map(city=>{
+			if(city.name==e.target.value){
+				setCity(city);
+			}
+		})
+	 }
+	  const landmarkHanlder=(e)=>{
+		city.landmarks.map(landmark=>{
+			if(landmark.name==e.target.value){
+				setLandmark(landmark);
+			}
+		})
+	 }
+
+
 	return (
 	<div id="main">
+       <label>States: </label>
+	   <select id="state" onChange={stateHandler}>
+		   <option>Madhya Pradesh</option>
+		   { states.map(city=>{
+              return <option key={city.name}>{city.name}</option>
+		  })}
+	   </select>
+	   <br/>
+	   <br/>
+	   <label>Cities: </label>
+	   <select id="city" onChange={cityHanlder}>
+		   <option>City</option>
+		   {state.city.map(city=>{
+			   return <option key={city.name}>{city.name}</option>
+		   })}
+	   </select>
+	    <br/>
+	   <br/>
+	   <label>Cities: </label>
+	   <select id="landmark" onChange={landmarkHanlder}>
+		   <option>Landmarks</option>
+		   {city.landmarks.map(landmark=>{
+			   return <option key={landmark.name}>{landmark.name}</option>
+		   })}
+	   </select>
+        <br/>
+        <br/>
+        <br/>
+		<div className="output">
+			<div id="state-name" >
+				{state.name}
+			</div>
+			<div id="state-description" >
+				{state.description}
+			</div>
+		</div>
+		<div className="output">
+			<div id="city-name" >
+				{city.name}
+			</div>
+			<div id="city-description" >
+				{city.description}
+			</div>
+		</div>
+		<div className="output">
+			<div id="landmark-name" >
+				{landmark.name}
+			</div>
+			<div id="landmark-description" >
+				{landmark.description}
+			</div>
+		</div>
 		
 	</div>
+
 	);
 }
 
