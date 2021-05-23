@@ -140,18 +140,18 @@ const states = [{
 
 function App() {
 	const [state, setState] = useState({
-                                name:"",
-								description:"",
+                                name:"Madhya Pradesh",
+								description:"Madhya Pradesh, a large state in central India, retains landmarks from eras throughout Indian history.",
 								city:[]
                              });
 	const[city,setCity]= useState({
-                             name:"",
-							 description:"",
+                             name:"Indore",
+							 description:"Indore is a city in west-central India. It’s known for the 7-story Rajwada Palace and the Lal Baag Palace, which date back to Indore’s 19th-century Holkar dynasty.",
 							 landmarks:[]
 	                      })
 	const[landmark,setLandmark]= useState({
-                             name:"",
-							 description:"",
+                             name:"Mhow",
+							 description:"Dr. Ambedkar Nagar, commonly known as Mhow, is a cantonment in the Indore district in Madhya Pradesh state of India. It is located 23 kilometres south-west of Indore city, towards Mumbai on the old Mumbai-Agra Road.",
 	                      })
 			
      const stateHandler = (e)=>{
@@ -191,7 +191,7 @@ function App() {
 	   <br/>
 	   <label>Cities: </label>
 	   <select id="city" onChange={cityHanlder}>
-		   <option>City</option>
+		   <option>Indore</option>
 		   {state.city.map(city=>{
 			   return <option key={city.name}>{city.name}</option>
 		   })}
@@ -200,7 +200,7 @@ function App() {
 	   <br/>
 	   <label>Cities: </label>
 	   <select id="landmark" onChange={landmarkHanlder}>
-		   <option>Landmarks</option>
+		   <option>Mhow</option>
 		   {city.landmarks.map(landmark=>{
 			   return <option key={landmark.name}>{landmark.name}</option>
 		   })}
